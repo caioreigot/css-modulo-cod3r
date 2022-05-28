@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #02</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+
+            /* Manipulando a ordem do flex item */
+            /* Todos os itens tem uma ordem, por padrão
+            é 0, os itens que tiverem uma ordem maior, serão
+            exibidos por últimos */
+            order: 1;
+            order: 0; /* volta pro lugar padrão pois 0 é o mesmo que todos */
+            order: -1; /* passa a ser exibido primeiro */
+            
+            align-self: center; /* alinhando o elemento de uma forma centralizada */
+            align-self: flex-end; /* vai pro fim do cross-axis */
+            align-self: flex-start; /* vai pro inicio do cross-axis */
+            align-self: stretch; /* stretch é o valor default */
+        }
+
+        .flex-container div {
+            width: 100px;
+            flex-grow: 1; /* define a lógica de como o espaço faltando será ocupado */
+        
+            /* Explicando o flex-grow:
+            flex-grow recebe de valor um "peso"
+
+            Se eu tiver um container de 600px de largura
+            E 4 itens dentro com 100px de largura
+            Sobrará um espaço de 200px's
+
+            Ao passar flex-grow: 1; para todos os itens dentro
+            do container, o CSS dividirá 200px (o espaço que sobrou)
+            por 4 (que é o número de itens dentro do container)
+            200px/4 = 50px
+
+            Então ele adicionará 50px de largura a mais para cada item
+            Fazendo com que os itens ocupem o espaço inteiro do container
+            
+            Obs: se eu aplicar um flex-grow de 2 para um dos itens, por exemplo
+            No exemplo acima, cada item irá ganhar 40px de largura, porém o com
+            peso de 2 irá ter 80px
+
+            Ou seja
+            [1][2][1][1] = 5 (total do peso)
+            200px/5 => 40
+            O 40 será aplicado aos pesos
+            Então quem tiver peso 1 ganha 40px de largura
+            E o com peso 2 ganha 40px x 2, ou seja, 80px de largura
+            */
+        }
+
+        .flex-container div {
+            flex-grow: 0;
+            flex-grow: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-grow: 2;
+        }
+
+        .flex-container {
+            width: 300px;
+            flex-shrink: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5; /* irá encolher mais */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel">3</div>
+        <div class="tag nolabel">4</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

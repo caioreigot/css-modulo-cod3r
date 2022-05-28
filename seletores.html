@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        /* * {
+           color: #ff0;
+           background-color: #f77; 
+        } */
+
+        /* .tag {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* #aprovados {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* #aninhado > div {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* Section não é filho direto, portanto, não mudará */
+        /* #aninhado > section {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* Um em seguida do outro (adjacente) */
+        /* p + ul {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* Não são adjacentes, portanto, não mudará  */
+        /* p + ol {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* Se os dois tem o mesmo pai, ele mudará  */
+        /* p ~ ol {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* Todos elementos que tem a propriedade "freira" */
+        /* [feira] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        
+        /* Todos elementos que tem a propriedade "freira" de valor "casa" */
+        /* [feira=casa] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* O ~ antes do = faz com que ele consiga pegar um elemento mesmo que */
+        /* com espaço, dentro da propriedade (sem o ~ neste exemplo, não mudará) */
+        /* [feira~=escritorio] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* O * antes do = pega os chars dentro do valor da propriedade, se conter */
+        /* o "sa" (neste exemplo), então ele muda */
+        /* [feira*=sa] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* Pega todos os primeiros filhos diretos que sejam do tipo span */
+        /* Obs: neste exemplo, é preciso por o nolabel para que o span vire o 1 filho */
+        /* span:nth-child(1) {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* Even ou odd (pega os filhos pares ou impares) */
+        /* section > :nth-child(even) {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* section > :nth-child(odd), ul, p {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* O 2 elemento spam da section */
+        /* section > span:nth-of-type(2) {
+            color: #ff0;
+            background-color: #f77;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>
